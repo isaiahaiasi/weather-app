@@ -1,3 +1,2 @@
-const div = document.createElement('div');
-div.textContent = 'hello webpack';
-document.body.appendChild(div);
+// Anything I need to preload
+import './styles/style.css';

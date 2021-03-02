@@ -1,7 +1,9 @@
 # Weather App
 
 An Odin Project project
+
 Learning focuses: Asynchronous functions & API requests
+
 Come back soon to see it in action!
 
 ## Project Spec
@@ -17,6 +19,8 @@ Come back soon to see it in action!
 - [ ] form that allows user to input location, fed to first function
 
 - [ ] Display info, providing unique visuals for different conditions
+
+- [ ] Toggle Fahrenheit or Celsius
 
 - [ ] Make it look _good_
 
