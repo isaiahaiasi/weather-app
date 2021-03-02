@@ -1,16 +1,37 @@
 :root {
-  --col-default-light: rgb(197, 197, 197);
-  --col-default-mid: rgb(145, 145, 145);
-  --col-default-dark: rgb(82, 82, 82);
+  /* * DESIGN TOKENS * */
+  /* COLORS */
+  --col-light-text: #f8e9d5;
+  --col-light-mid: #f5d3a6;
+  --col-light-secondary: #f1b64e;
+
+  --col-primary-light: #566a69;
+  --col-primary-mid: #142f35;
+  --col-primary-dark: #091219;
+
+  --col-secondary: #da5341;
+
+  --grey-light: rgb(197, 197, 197);
+  --grey-default-mid: rgb(145, 145, 145);
+  --grey-default-dark: rgb(82, 82, 82);
 
   --col-card: rgba(0, 0, 0, 0.3);
+
+  /* Z-INDEX SCHEMA */
+  --z-behind: -5;
+  --z-bg: 0;
+  --z-base: 10;
+  --z-element: 20;
+  --z-text: 50;
+
+  /* POSITIONS */
+  --top-height: 2rem; /* Header bar */
+  --bottom-height: 5rem; /* Search box */
+
+  /* * GLOBAL PREFERENCES * */
   font-size: 1.5rem;
-
-  --top-height: 2rem;
-  --bottom-height: 5rem;
-
   font-family: sans-serif;
-  color: white;
+  color: var(--col-light-text);
 }
 
 body {
@@ -20,7 +41,7 @@ body {
   padding: 0;
   padding-top: var(--top-height);
   padding-bottom: var(--bottom-height);
-  background: var(--col-default-dark);
+  z-index: var(--z-bg);
 }
 
 /* General */
@@ -36,12 +57,19 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: var(--z-base);
 
   width: 100%;
   --height: calc(100vh - var(--top-height) - var(--bottom-height));
   height: var(--height);
   min-height: var(--height);
   padding-bottom: 2.5rem;
+
+  background: linear-gradient(
+    var(--col-primary-light),
+    var(--col-primary-mid),
+    var(--col-primary-dark)
+  );
 }
 
 .weather-content {
@@ -50,26 +78,44 @@ body {
   flex-direction: column;
   align-content: center;
   padding: 0.25rem;
+  text-shadow: 0.1rem 0.1rem 0.25rem var(--col-primary-dark);
 }
 
-.icon-container {
+.weather-card {
   box-sizing: border-box;
   height: 8rem;
-  background: var(--col-card);
-  margin: 0.5rem;
+  width: 100%;
+  max-width: 20rem;
+  margin: 0.5rem auto;
+  position: relative;
+  z-index: 1;
+}
+.weather-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  background: var(--col-primary-dark);
+  z-index: -1;
+  border-radius: 10px;
 }
 
 .info-container {
-  box-sizing: border-box;
   height: 10rem;
-  background: var(--col-card);
-  margin: 0.5rem;
   padding: 0.2rem 0.5rem;
+}
+
+.icon-container {
+  text-align: center;
+  padding-top: 3rem;
 }
 
 .location {
   position: absolute;
-  bottom: 0;
+  bottom: 0.3rem;
   right: 0;
   left: 0;
   text-align: center;
@@ -87,12 +133,9 @@ body {
   font-size: 1.5rem;
 }
 
-.weather-temp-group {
-  text-align: center;
-}
-
 .weather-current-temp {
   font-size: 5rem;
+  text-align: center;
 }
 
 .weather-details-group {
@@ -106,7 +149,6 @@ body {
 .top {
   box-sizing: border-box;
   position: fixed;
-  background: var(--col-default-mid);
   top: 0;
   height: var(--top-height);
   width: 100%;
@@ -115,27 +157,46 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0.3em;
+
+  background: var(--col-light-mid);
+  color: var(--col-secondary);
+
+  z-index: var(--z-base);
 }
 
 .switch {
   position: relative;
   box-sizing: border-box;
   height: 100%;
-  background: var(--col-default-dark);
+  background: linear-gradient(var(--col-primary-mid), var(--col-primary-light));
   border-radius: 100px;
   width: 3rem;
+  z-index: var(--z-element);
 }
 
 .switch-thumb {
   position: absolute;
   left: 0;
-  background: white;
-  height: 100%;
+  background: var(--col-light-text);
   /* (slightly larger thumb) */
-  /* height: calc(100% + 2px);
-  transform: translateY(-1px); */
+  height: calc(100% + 4px);
+  transform: translateY(-2px);
   width: 1.5rem;
   border-radius: 50%;
+  z-index: 1;
+}
+
+.switch-thumb::before {
+  content: '';
+  z-index: -50;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 0.4rem var(--col-primary-light);
+  opacity: 0.7;
 }
 
 .switch-label {
@@ -146,10 +207,13 @@ body {
   left: 0;
   font-size: 0.9rem;
   padding: 0.15rem 0.5rem;
+  color: var(--col-light-text);
+  z-index: 2;
+  user-select: none;
 }
 
 .switch-label-active {
-  color: var(--col-default-dark);
+  color: var(--col-secondary);
   font-weight: bold;
 }
 
@@ -157,7 +221,7 @@ body {
   height: 100%;
   width: 1.5rem;
   border-radius: 50%;
-  background: white;
+  background: var(--col-secondary);
 }
 
 /* SEARCH */
@@ -167,23 +231,29 @@ body {
   box-sizing: border-box;
   height: var(--bottom-height);
   bottom: 0;
-  background: var(--col-default-mid);
+  background: var(--col-light-mid);
   width: 100%;
   padding: 0.5rem 1rem;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+
+  color: var(--col-secondary);
 }
 
 .search-bar {
   box-sizing: border-box;
   height: 1.5rem;
+  width: 100%;
+  max-width: 20rem;
   margin-top: 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: white;
+  background: var(--col-secondary);
+  color: var(--col-light-text);
   border-radius: 2rem;
 }
 
@@ -192,14 +262,18 @@ body {
 }
 
 .search-icon-placeholder {
-  height: 1.2rem;
-  width: 1.2rem;
+  height: 1rem;
+  width: 1rem;
   margin: 0 0.2rem;
   border-radius: 50%;
-  background: var(--col-default-light);
+  border: 2px solid var(--col-light-mid);
+}
+
+.search-icon-placeholder.left {
+  border-color: var(--col-secondary);
 }
 
 .footer {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   text-align: center;
 }
