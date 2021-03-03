@@ -12,7 +12,7 @@ Come back soon to see it in action!
 
   `('location') => { data }`
 
-- [ ] Function to process data
+- [x] Function to process data
 
   `({ data }) => { relevant data })`
 

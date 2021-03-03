@@ -6,4 +6,9 @@
 - API also provides the city's shift in seconds from UTC, so I could display local time as well.
 - API provides its own icons, so I could either link to those (tired) or use those to determine which of my own icons to show (wired). I could get even more granular using the tables [listed here](https://openweathermap.org/weather-conditions), but that would probably be overkill.
 - Animating SVGs for the weather icons... I just feel like those would be really cool. This probably means inlining them with a special webpack loader, but I'm not sure what else is involved? Theoretically I could also use CSS to make the graphics, but that could be really difficult.
+  - svgontheweb.com
+  - <object> vs inline
+  - animation libraries: snap.svg (js), animate.style (css)
+  - for <object> svgs, can link a stylesheet in svg body.
+  - how does svg masking work???
 - Maybe check the general moon phase (new, waning, gibbous, full) & change icons based on that? Probably overkill again, tbh. Also, _accurately_ calculating moon phases is apparently quite complicated.
