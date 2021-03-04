@@ -165,18 +165,36 @@ body {
   z-index: var(--z-base);
 }
 
+/* SWITCH STYLES */
+
 .switch {
+  user-select: none;
   position: relative;
   box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
   height: 100%;
   background: var(--col-primary-light);
   box-shadow: inset 0px 3px 10px var(--col-primary-mid);
   border-radius: 100px;
   width: 3rem;
   z-index: var(--z-element);
+  padding: 0 0.4rem;
 }
 
-.switch-thumb {
+.switch > input {
+  opacity: 0;
+  position: absolute;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.switch > input ~ .switch-thumb {
+  content: '';
   position: absolute;
   left: 0;
   background: var(--col-light-text);
@@ -186,6 +204,11 @@ body {
   width: 1.5rem;
   border-radius: 50%;
   z-index: 1;
+  transition: 0.3s cubic-bezier(0.53, -0.37, 0.53, 1.37);
+}
+
+.switch > input:checked ~ .switch-thumb {
+  transform: translateY(-2px) translateX(1.5rem);
 }
 
 .switch-thumb::before {
@@ -202,21 +225,16 @@ body {
 }
 
 .switch-label {
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  right: 0;
-  left: 0;
-  font-size: 0.9rem;
-  padding: 0.15rem 0.5rem;
-  color: var(--col-light-text);
+  margin: 0.12rem 0;
   z-index: 2;
-  user-select: none;
+  color: var(--col-light-text);
 }
 
-.switch-label-active {
+.switch > input:checked ~ .on,
+.switch > input:not(:checked) ~ .off {
   color: var(--col-secondary);
   font-weight: bold;
+  transition: 0.3s;
 }
 
 .gh-logo {
