@@ -42,43 +42,36 @@ function filterWeatherData(obj) {
   };
 }
 
-// This WILL take the raw data object from the API call
+// This will take the raw data object from the API call
 function assignData() {
   const data = filterWeatherData(testQuery);
+
+  // TODO: check if mode is set to F or C
+  const getTemp = (rawTemp) => Math.round(convertKelvinToFahrenheit(rawTemp));
 
   const description = document.body.querySelector('.weather-description');
   description.textContent = data.description;
 
-  // main/temp to '.weather-current-temp'
   const currentTemp = document.body.querySelector('.weather-current-temp');
   currentTemp.textContent = getTemp(data.currentTemp) + '°';
 
-  // main/feels_like to '.weather-feels-like'
   const feelsLike = document.body.querySelector('.weather-feels-like');
   feelsLike.textContent = 'feels like: ' + getTemp(data.feelsLike) + '°';
 
-  // main/temp_max to '.weather-detail-max'
   const maxTemp = document.body.querySelector('.weather-detail-max');
   maxTemp.textContent = 'high: ' + getTemp(data.maxTemp) + '°';
 
-  // main/temp_min to '.weather-detail-min'
   const lowTemp = document.body.querySelector('.weather-detail-min');
   lowTemp.textContent = 'low: ' + getTemp(data.minTemp) + '°';
 
-  // main/humidity to '.weather-detail-humidity'
   const humidity = document.body.querySelector('.weather-detail-humidity');
   humidity.textContent = 'humidity: ' + data.humidity + '%';
 
-  // wind/speed to '.weather-detail-wind'
   const wind = document.body.querySelector('.weather-detail-wind');
   wind.textContent = 'wind: ' + data.wind + 'mph';
 }
 
 // TEMPERATURE HANDLING FUNCTIONS
-function getTemp(rawTemp) {
-  // TODO: check if mode is set to F or C
-  return Math.round(convertKelvinToFahrenheit(rawTemp));
-}
 
 function convertKelvinToFahrenheit(temp) {
   return (convertKelvinToCelsius(temp) * 9) / 5 + 32;
