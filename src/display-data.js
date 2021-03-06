@@ -48,7 +48,6 @@ function assignData() {
 }
 
 function assignTemps(data, isCelsius) {
-  // TODO: check if mode is set to F or C
   const getTemp = (rawTemp) =>
     isCelsius
       ? Math.round(convertKelvinToCelsius(rawTemp))

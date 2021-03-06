@@ -210,6 +210,77 @@
       "id": 1819729,
       "name": "Hong Kong",
       "cod": 200
+    },
+    {
+      "coord": { "lon": 139.6917, "lat": 35.6895 },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Rain",
+          "description": "light rain",
+          "icon": "10d"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 288.08,
+        "feels_like": 286.03,
+        "temp_min": 287.04,
+        "temp_max": 289.26,
+        "pressure": 1020,
+        "humidity": 67
+      },
+      "visibility": 10000,
+      "wind": { "speed": 2.57, "deg": 140 },
+      "rain": { "1h": 0.27 },
+      "clouds": { "all": 75 },
+      "dt": 1614927719,
+      "sys": {
+        "type": 1,
+        "id": 8077,
+        "country": "JP",
+        "sunrise": 1614891990,
+        "sunset": 1614933564
+      },
+      "timezone": 32400,
+      "id": 1850144,
+      "name": "Tokyo",
+      "cod": 200
+    },
+    {
+      "coord": { "lon": -79.4163, "lat": 43.7001 },
+      "weather": [
+        {
+          "id": 800,
+          "main": "Clear",
+          "description": "clear sky",
+          "icon": "01n"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 265.29,
+        "feels_like": 257.41,
+        "temp_min": 264.26,
+        "temp_max": 266.15,
+        "pressure": 1022,
+        "humidity": 53
+      },
+      "visibility": 10000,
+      "wind": { "speed": 6.39, "deg": 325, "gust": 12.81 },
+      "clouds": { "all": 0 },
+      "dt": 1614927599,
+      "sys": {
+        "type": 1,
+        "id": 718,
+        "country": "CA",
+        "sunrise": 1614944833,
+        "sunset": 1614985876
+      },
+      "timezone": -18000,
+      "id": 6167865,
+      "name": "Toronto",
+      "cod": 200
     }
   ]
 }

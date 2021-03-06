@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 415 369">
+  <g id="f6ae470e-863b-418a-a337-befe4550c59e" data-name="10">
+    <g>
+      <line x1="152.67" y1="200.83" x2="50.67" y2="345.83"/>
+      <g>
+        <line x1="152.67" y1="200.83" x2="147.49" y2="208.19" style="fill: none;stroke: #000;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 12px"/>
+        <line x1="122.85" y1="243.22" x2="68.16" y2="320.96" style="fill: none;stroke: #000;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 12px;stroke-dasharray: 15.414412498474121,42.817813873291016"/>
+        <line x1="55.84" y1="338.47" x2="50.67" y2="345.83" style="fill: none;stroke: #000;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 12px"/>
+      </g>
+    </g>
+    <g>
+      <line x1="203.67" y1="200.83" x2="101.67" y2="345.83"/>
+      <g>
+        <line x1="203.67" y1="200.83" x2="198.49" y2="208.19" style="fill: none;stroke: #000;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 12px"/>
+        <line x1="173.85" y1="243.22" x2="119.16" y2="320.96" style="fill: none;stroke: #000;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 12px;stroke-dasharray: 15.414412498474121,42.817813873291016"/>
+        <line x1="106.84" y1="338.47" x2="101.67" y2="345.83" style="fill: none;stroke: #000;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 12px"/>
+      </g>
+    </g>
+    <g>
+      <line x1="248.67" y1="200.83" x2="146.67" y2="345.83"/>
+      <g>
+        <line x1="248.67" y1="200.83" x2="243.49" y2="208.19" style="fill: none;stroke: #000;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 12px"/>
+        <line x1="218.85" y1="243.22" x2="164.16" y2="320.96" style="fill: none;stroke: #000;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 12px;stroke-dasharray: 15.414412498474121,42.817813873291016"/>
+        <line x1="151.84" y1="338.47" x2="146.67" y2="345.83" style="fill: none;stroke: #000;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 12px"/>
+      </g>
+    </g>
+    <g>
+      <line x1="299.67" y1="200.83" x2="197.67" y2="345.83"/>
+      <g>
+        <line x1="299.67" y1="200.83" x2="294.49" y2="208.19" style="fill: none;stroke: #000;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 12px"/>
+        <line x1="269.85" y1="243.22" x2="215.16" y2="320.96" style="fill: none;stroke: #000;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 12px;stroke-dasharray: 15.414412498474121,42.817813873291016"/>
+        <line x1="202.84" y1="338.47" x2="197.67" y2="345.83" style="fill: none;stroke: #000;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 12px"/>
+      </g>
+    </g>
+    <g id="e2e0db80-212b-453c-b12e-4e548dfa4fcc" data-name="fg">
+      <path d="M20.44,231.74s317-.13,333,0c15.27-35.39-2.48-68.52-38.64-47.79,8.44-58.94-45.38-83.34-78.6-53.59C202.78,54.1,87.65,70.24,78.88,174.18,32.09,145.83,11.68,200.68,20.44,231.74Z"/>
+    </g>
+    <path d="M209.58,86.61a84.69,84.69,0,0,1,28.78,31.46,53.34,53.34,0,0,1,29.92-9.42,51.51,51.51,0,0,1,38.87,17.9c9.93,11.46,14.94,27,14.51,44.57a40.27,40.27,0,0,1,13.73-2.59,27.14,27.14,0,0,1,22,10.51,88.51,88.51,0,1,0-150-93.8C208.1,85.69,208.84,86.14,209.58,86.61Z"/>
+  </g>
+</svg>

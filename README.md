@@ -20,7 +20,7 @@ Come back soon to see it in action!
 
 - [ ] Display info, providing unique visuals for different conditions
 
-- [ ] Toggle Fahrenheit or Celsius
+- [x] Toggle Fahrenheit or Celsius
 
 - [ ] Make it look _good_
 
