@@ -116,6 +116,10 @@ body {
   /* overflow: hidden; */
 }
 
+.icon-container::before {
+  opacity: 0;
+}
+
 .location {
   position: absolute;
   bottom: 0.3rem;

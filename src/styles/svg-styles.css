@@ -3,8 +3,9 @@
 }
 .svg-container {
   position: relative;
-  top: 0;
-  left: 0;
+  display: flex;
+  justify-content: center;
+  height: 100%;
 }
 
 svg {
@@ -12,13 +13,11 @@ svg {
   stroke: var(--col-light-text);
   stroke-width: 0;
   width: 30%;
-  position: absolute;
   --top-root: 1rem;
   top: var(--top-root);
-  transform: translateX(-50%);
 }
 
-.cloud {
+/* .cloud {
   fill: none;
   stroke: var(--col-light-text);
   stroke-width: 8px;
@@ -49,4 +48,4 @@ svg {
   to {
     transform: translateX(1rem);
   }
-}
+} */
