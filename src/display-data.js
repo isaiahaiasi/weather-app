@@ -22,8 +22,8 @@ function filterWeatherData(obj) {
 }
 
 // This will take the raw data object from the API call
-function assignData() {
-  const data = filterWeatherData(testQuery);
+function renderData(dataObj) {
+  const data = filterWeatherData(dataObj ?? testQuery);
 
   const location = document.body.querySelector('.location');
   location.textContent = data.location;
@@ -43,16 +43,16 @@ function assignData() {
 
   unitSwitch.addEventListener('change', () => {
     localStorage.setItem('unit', unitSwitch.checked);
-    assignTemps(data, unitSwitch.checked);
+    renderTemps(data, unitSwitch.checked);
   });
 
-  assignTemps(data, unitSwitch.checked);
+  renderTemps(data, unitSwitch.checked);
 
   const svgContainerGroup = document.querySelector('.svg-container-group');
   svgContainerGroup.appendChild(makeIconComponent(data.iconId));
 }
 
-function assignTemps(data, isCelsius) {
+function renderTemps(data, isCelsius) {
   const getTemp = (rawTemp) =>
     isCelsius
       ? Math.round(convertKelvinToCelsius(rawTemp))
@@ -81,4 +81,4 @@ function convertKelvinToCelsius(temp) {
   return temp - 273.15;
 }
 
-export default assignData;
+export default renderData;
