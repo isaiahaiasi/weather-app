@@ -1,4 +1,5 @@
 import sampleData from './weather-samples.json';
+import makeIconComponent from './weather-icon-loader.js';
 
 const randIndex = Math.floor(Math.random() * sampleData.samples.length);
 const testQuery = sampleData.samples[randIndex];
@@ -13,6 +14,7 @@ function filterWeatherData(obj) {
     maxTemp: obj.main.temp_max,
     humidity: obj.main.humidity,
     wind: obj.wind.speed,
+    iconId: obj.weather[0].icon,
     localTime: obj.dt - obj.timezone,
     sunrise: obj.sys.sunrise - obj.timezone,
     sunset: obj.sys.sunset - obj.timezone,
@@ -45,6 +47,9 @@ function assignData() {
   });
 
   assignTemps(data, unitSwitch.checked);
+
+  const svgContainerGroup = document.querySelector('.svg-container-group');
+  svgContainerGroup.appendChild(makeIconComponent(data.iconId));
 }
 
 function assignTemps(data, isCelsius) {
