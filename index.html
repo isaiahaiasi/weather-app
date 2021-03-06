@@ -1,52 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WeatherApp</title>
-  <script src="preload.bundle.js"></script>
-  <script defer src="postload.bundle.js"></script>
-</head>
-<body>
-  <div class="top shadow">
-    <label class="switch">
-        <input type="checkbox" class="temp-unit-checkbox">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeatherApp</title>
+    <script src="preload.bundle.js"></script>
+    <script defer src="postload.bundle.js"></script>
+  </head>
+
+  <body>
+    <div class="top shadow">
+      <label class="switch">
+        <input type="checkbox" class="temp-unit-checkbox" />
         <div class="switch-thumb"></div>
         <div class="switch-label off">F</div>
         <div class="switch-label on">C</div>
-    </label>
-    <div class="logo">WeatherApp</div>
-    <a href="https://github.com/isaiahaiasi/weather-app" class="gh-logo"></a>
-  </div>
-  <div class="main-content">
-    <div class="weather-content">
-      <div class="info-container weather-card">
-        <div class="weather-description">Clear skies</div>
-        <div class="weather-info-container">
-          <div class="weather-temp-group">
-            <div class="weather-current-temp">80°</div>
-            <div class="weather-feels-like">feels like: 85°</div>
+      </label>
+      <div class="logo">WeatherApp</div>
+      <a href="https://github.com/isaiahaiasi/weather-app" class="gh-logo"></a>
+    </div>
+    <div class="main-content">
+      <div class="weather-content">
+        <div class="info-container weather-card">
+          <div class="weather-description">Clear skies</div>
+          <div class="weather-info-container">
+            <div class="weather-temp-group">
+              <div class="weather-current-temp">80°</div>
+              <div class="weather-feels-like">feels like: 85°</div>
+            </div>
+            <div class="weather-details">
+              <div class="weather-detail-max">high: 90°</div>
+              <div class="weather-detail-min">low: 60°</div>
+              <div class="weather-detail-humidity">humidity: 20%</div>
+              <div class="weather-detail-wind">wind: 6mph</div>
+            </div>
           </div>
-          <div class="weather-details">
-            <div class="weather-detail-max">high: 90°</div>
-            <div class="weather-detail-min">low: 60°</div>
-            <div class="weather-detail-humidity">humidity: 20%</div>
-            <div class="weather-detail-wind">wind: 6mph</div>
+        </div>
+        <div class="icon-container weather-card">
+          <div class="svg-container">
+            <svg class="cloud" x="0" y="0" viewBox="-10 -10 360 160">
+              <g id="cloud-path">
+                <path
+                  d="M4.9,149.7c0,0,317,-0.1,333,0c15.3,-35.4,-2.5,-68.5,-38.6,-47.8c8.4,-58.9,-45.4,-83.3,-78.6,-53.6c-33.4,-76.2,-148.5,-60.1,-157.3,43.9c-46.8,-28.4,-67.2,26.5,-58.5,57.5z"
+                />
+              </g>
+            </svg>
+            <svg class="cloud-bg" x="0" y="0" viewBox="-10 -10 360 160">
+              <!-- <mask class="cloud-mask" url="#cloud-path" fill="black"></mask> -->
+              <path
+                d="M4.9,149.7c0,0,317,-0.1,333,0c15.3,-35.4,-2.5,-68.5,-38.6,-47.8c8.4,-58.9,-45.4,-83.3,-78.6,-53.6c-33.4,-76.2,-148.5,-60.1,-157.3,43.9c-46.8,-28.4,-67.2,26.5,-58.5,57.5z"
+              />
+            </svg>
           </div>
         </div>
       </div>
-      <div class="icon-container weather-card">ICON</div>
+      <div class="location">PHOENIX, AZ</div>
     </div>
-    <div class="location">PHOENIX, AZ</div>
-  </div>
-  <div class="search-container shadow">
-    <div class="search-bar">
-      <div class="search-icon-placeholder left"></div>
-      <input class="search-input" placeholder="Find your city..."></input>
-      <button class="search-icon-placeholder"></button>
+    <div class="search-container shadow">
+      <div class="search-bar">
+        <div class="search-icon-placeholder left"></div>
+        <input class="search-input" placeholder="Find your city..." />
+        <button class="search-icon-placeholder"></button>
+      </div>
+      <div class="footer">Powered by OpenWeatherMap</div>
     </div>
-    <div class="footer">Powered by OpenWeatherMap</div>
-  </div>
-</body>
+  </body>
 </html>
