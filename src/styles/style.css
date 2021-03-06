@@ -113,6 +113,7 @@ body {
   text-align: center;
   display: flex;
   justify-content: center;
+  /* overflow: hidden; */
 }
 
 .location {
