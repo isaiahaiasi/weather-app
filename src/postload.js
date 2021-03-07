@@ -30,3 +30,5 @@ function getQueryUrl(searchValue) {
   const cat = urlBase + searchValue + k;
   return cat;
 }
+
+displayData();

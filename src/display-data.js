@@ -1,5 +1,6 @@
 import sampleData from './weather-samples.json';
 import makeIconComponent from './weather-icon-loader.js';
+import { elm } from './domUtils.js';
 
 const randIndex = Math.floor(Math.random() * sampleData.samples.length);
 const testQuery = sampleData.samples[randIndex];
@@ -21,35 +22,83 @@ function filterWeatherData(obj) {
   };
 }
 
+const container = document.querySelector('.main-content');
+const content = elm('div', 'weather-contnet');
+
 // This will take the raw data object from the API call
 function renderData(dataObj) {
+  // TODO: data should be passed to this function pre-filtered
   const data = filterWeatherData(dataObj ?? testQuery);
 
-  const location = document.body.querySelector('.location');
+  // Clear container
+  while (container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
+
+  const infoContainer = elm('div', 'info-container', 'weather-card');
+  infoContainer.appendChild(renderWeatherInfo(data));
+
+  const iconContainer = elm('div', 'icon-container', 'weather-card');
+  const svgContainerGroup = elm('div', '.svg-container-group');
+  svgContainerGroup.appendChild(makeIconComponent(data.iconId));
+  iconContainer.appendChild(svgContainerGroup);
+
+  const location = elm('div', 'location');
   location.textContent = data.location;
 
-  const description = document.body.querySelector('.weather-description');
-  description.textContent = data.description;
-
-  const humidity = document.body.querySelector('.weather-detail-humidity');
-  humidity.textContent = 'humidity: ' + data.humidity + '%';
-
-  const wind = document.body.querySelector('.weather-detail-wind');
-  wind.textContent = 'wind: ' + data.wind + 'mph';
-
   const unitSwitch = document.body.querySelector('.temp-unit-checkbox');
-
-  unitSwitch.checked = localStorage.getItem('unit') === 'true' ?? false;
 
   unitSwitch.addEventListener('change', () => {
     localStorage.setItem('unit', unitSwitch.checked);
     renderTemps(data, unitSwitch.checked);
   });
 
+  // TODO: Move to a separate component
+  unitSwitch.checked = localStorage.getItem('unit') === 'true' ?? false;
+
+  content.append(infoContainer, iconContainer, location);
+
   renderTemps(data, unitSwitch.checked);
 
-  const svgContainerGroup = document.querySelector('.svg-container-group');
-  svgContainerGroup.appendChild(makeIconComponent(data.iconId));
+  container.appendChild(content);
+}
+
+function renderWeatherInfo(data) {
+  // Generate containers
+  const description = elm('div', 'weather-description');
+
+  const weatherInfoContainer = elm('div', 'weather-info-container');
+
+  const weatherTempGroup = elm('div', 'weather-temp-group');
+  weatherTempGroup.append(
+    elm('div', 'weather-current-temp'),
+    elm('div', 'weather-feels-like')
+  );
+
+  const weatherDetails = elm('div', 'weather-details');
+  weatherDetails.append(
+    elm('div', 'weather-detail-max'),
+    elm('div', 'weather-detail-min'),
+    elm('div', 'weather-detail-humidity'),
+    elm('div', 'weather-detail-wind')
+  );
+
+  // Apply data (excluding temp, handled elsewhere)
+  description.textContent = data.description;
+
+  const humidity = weatherDetails.querySelector('.weather-detail-humidity');
+  humidity.textContent = 'humidity: ' + data.humidity + '%';
+
+  const wind = weatherDetails.querySelector('.weather-detail-wind');
+  wind.textContent = 'wind: ' + data.wind + 'mph';
+
+  // Tie everything together
+  weatherInfoContainer.append(weatherTempGroup, weatherDetails);
+
+  // Append toplevel nodes to fragment & return
+  const frag = new DocumentFragment();
+  frag.append(description, weatherInfoContainer);
+  return frag;
 }
 
 function renderTemps(data, isCelsius) {
@@ -58,16 +107,16 @@ function renderTemps(data, isCelsius) {
       ? Math.round(convertKelvinToCelsius(rawTemp))
       : Math.round(convertKelvinToFahrenheit(rawTemp));
 
-  const currentTemp = document.body.querySelector('.weather-current-temp');
+  const currentTemp = content.querySelector('.weather-current-temp');
   currentTemp.textContent = getTemp(data.currentTemp) + '°';
 
-  const feelsLike = document.body.querySelector('.weather-feels-like');
+  const feelsLike = content.querySelector('.weather-feels-like');
   feelsLike.textContent = 'feels like: ' + getTemp(data.feelsLike) + '°';
 
-  const maxTemp = document.body.querySelector('.weather-detail-max');
+  const maxTemp = content.querySelector('.weather-detail-max');
   maxTemp.textContent = 'high: ' + getTemp(data.maxTemp) + '°';
 
-  const lowTemp = document.body.querySelector('.weather-detail-min');
+  const lowTemp = content.querySelector('.weather-detail-min');
   lowTemp.textContent = 'low: ' + getTemp(data.minTemp) + '°';
 }
 
