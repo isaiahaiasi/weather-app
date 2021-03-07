@@ -21,12 +21,12 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.svg/i,
-        type: 'asset/source',
+        test: /\.(png|jpg|jpeg|gif|svg)$/i,
+        type: 'asset/resource',
       },
       {
-        test: /\.(png|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
+        test: /\.inline\.svg/i,
+        type: 'asset/source',
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,

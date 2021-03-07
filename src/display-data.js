@@ -6,7 +6,7 @@ const randIndex = Math.floor(Math.random() * sampleData.samples.length);
 const testQuery = sampleData.samples[randIndex];
 
 function filterWeatherData(obj) {
-  if (obj.cod !== '200') {
+  if (obj.cod !== 200) {
     return { code: obj.cod };
   }
   return {
@@ -39,7 +39,7 @@ function renderData(dataObj) {
     container.removeChild(container.firstChild);
   }
 
-  if (data.code !== '200') {
+  if (data.code !== 200) {
     const errorElm = document.createElement('div');
     errorElm.textContent = 'Sorry, where is that?';
     container.appendChild(errorElm);

@@ -1,12 +1,12 @@
-import clearSky from '../lib/Clear-Sky.svg'; // 01
-import fewClouds from '../lib/Few-Clouds.svg'; // 02
-import scatteredClouds from '../lib/Scattered-Clouds.svg'; // 03
-import brokenClouds from '../lib/Broken-Clouds.svg'; // 03
-import showerRain from '../lib/Shower-Rain.svg'; // 09
-import rain from '../lib/Rain.svg'; // 10
-import thunderstorm from '../lib/Thunderstorm.svg'; // 11
-import snowflake from '../lib/Few-Clouds.svg'; // 13
-import mist from '../lib/Mist.svg'; // 50
+import clearSky from '../lib/weather-icons/Clear-Sky.inline.svg'; // 01
+import fewClouds from '../lib/weather-icons/Few-Clouds.inline.svg'; // 02
+import scatteredClouds from '../lib/weather-icons/Scattered-Clouds.inline.svg'; // 03
+import brokenClouds from '../lib/weather-icons/Broken-Clouds.inline.svg'; // 03
+import showerRain from '../lib/weather-icons/Shower-Rain.inline.svg'; // 09
+import rain from '../lib/weather-icons/Rain.inline.svg'; // 10
+import thunderstorm from '../lib/weather-icons/Thunderstorm.inline.svg'; // 11
+import snowflake from '../lib/weather-icons/Few-Clouds.inline.svg'; // 13
+import mist from '../lib/weather-icons/Mist.inline.svg'; // 50
 
 const icons = {
   n01: clearSky,
