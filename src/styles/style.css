@@ -320,6 +320,13 @@ body {
   border-radius: 50%;
   border: 2px solid var(--col-light-mid);
   background: none;
+  font-size: 0;
+  line-height: 0;
+  transition: 0.3s ease-out;
+}
+
+.search-icon-placeholder:hover {
+  transform: scale(1.3);
 }
 
 .search-icon-placeholder.left {

@@ -23,17 +23,18 @@ function filterWeatherData(obj) {
 }
 
 const container = document.querySelector('.main-content');
-const content = elm('div', 'weather-contnet');
+let content = elm('div', 'weather-content');
 
 // This will take the raw data object from the API call
 function renderData(dataObj) {
   // TODO: data should be passed to this function pre-filtered
   const data = filterWeatherData(dataObj ?? testQuery);
 
-  // Clear container
+  // Clear containers
   while (container.firstChild) {
     container.removeChild(container.firstChild);
   }
+  content = elm('div', 'weather-content');
 
   const infoContainer = elm('div', 'info-container', 'weather-card');
   infoContainer.appendChild(renderWeatherInfo(data));
@@ -48,9 +49,12 @@ function renderData(dataObj) {
 
   const unitSwitch = document.body.querySelector('.temp-unit-checkbox');
 
+  console.log(unitSwitch);
+
   unitSwitch.addEventListener('change', () => {
     localStorage.setItem('unit', unitSwitch.checked);
     renderTemps(data, unitSwitch.checked);
+    console.log('changed');
   });
 
   // TODO: Move to a separate component

@@ -8,20 +8,18 @@ Come back soon to see it in action!
 
 ## Project Spec
 
-- [ ] Function to hit openweathermap API
+- [x] Function to hit openweathermap API
 
   `('location') => { data }`
 
 - [x] Function to process data
 
-  `({ data }) => { relevant data })`
+  `({ data }) => { relevant data }`
 
-- [ ] form that allows user to input location, fed to first function
+- [x] form that allows user to input location, fed to first function
 
-- [ ] Display info, providing unique visuals for different conditions
+- [x] Display info, providing unique visuals for different conditions
 
 - [x] Toggle Fahrenheit or Celsius
 
-- [ ] Make it look _good_
-
-- [ ] Add "loading" visual component while the data is being fetched
+- [x] Make it look _good_
