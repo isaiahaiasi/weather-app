@@ -39,7 +39,7 @@ async function onWeatherSearch(searchValue) {
 }
 
 function getQueryUrl(searchValue) {
-  const urlBase = 'http://api.openweathermap.org/data/2.5/weather?q=';
+  const urlBase = 'https://api.openweathermap.org/data/2.5/weather?q=';
   const k = '&appid=bbf3f04cb5a7134662f048d9b93457cf';
   const cat = urlBase + searchValue + k;
   return cat;
