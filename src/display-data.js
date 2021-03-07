@@ -6,6 +6,9 @@ const randIndex = Math.floor(Math.random() * sampleData.samples.length);
 const testQuery = sampleData.samples[randIndex];
 
 function filterWeatherData(obj) {
+  if (obj.cod !== '200') {
+    return { code: obj.cod };
+  }
   return {
     location: obj.name,
     description: obj.weather[0].description,
@@ -19,6 +22,7 @@ function filterWeatherData(obj) {
     localTime: obj.dt - obj.timezone,
     sunrise: obj.sys.sunrise - obj.timezone,
     sunset: obj.sys.sunset - obj.timezone,
+    code: obj.cod,
   };
 }
 
@@ -33,6 +37,13 @@ function renderData(dataObj) {
   // Clear containers
   while (container.firstChild) {
     container.removeChild(container.firstChild);
+  }
+
+  if (data.code !== '200') {
+    const errorElm = document.createElement('div');
+    errorElm.textContent = 'Sorry, where is that?';
+    container.appendChild(errorElm);
+    return;
   }
   content = elm('div', 'weather-content');
 
@@ -49,12 +60,9 @@ function renderData(dataObj) {
 
   const unitSwitch = document.body.querySelector('.temp-unit-checkbox');
 
-  console.log(unitSwitch);
-
   unitSwitch.addEventListener('change', () => {
     localStorage.setItem('unit', unitSwitch.checked);
     renderTemps(data, unitSwitch.checked);
-    console.log('changed');
   });
 
   // TODO: Move to a separate component
